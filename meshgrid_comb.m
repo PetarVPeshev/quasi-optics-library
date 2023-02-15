@@ -1,5 +1,5 @@
 function grid = meshgrid_comb(varargin)
-%MESHGRID_COMB Wrap function of meshgrid, which returns the grid variables
+%MESHGRID_COMB Wrap function of meshgrid, which returns the grid matricies
 %together in a 3D or 4D matrix
 %   The function takes either 2 or 3 vectors. For 2 vectors, it returns
 %   3D matrix with the third dimension holding the vector grids in the
