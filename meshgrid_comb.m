@@ -6,14 +6,12 @@ function grid = meshgrid_comb(varargin)
 %   order of parsing them to the function. For 3 vectors, it returns 4D
 %   matrix with the forth dimension holding the vector grids in the order
 %   of parsing them to the function.
+    x = varargin{1};
+    y = varargin{2};
     if length(varargin) == 2
-        x = varargin{1};
-        y = varargin{2};
         grid = NaN(length(y), length(x), 2);
         [grid(:, :, 1), grid(:, :, 2)] = meshgrid(x, y);
     elseif length(varargin) == 3
-        x = varargin{1};
-        y = varargin{2};
         z = varargin{3};
         grid = NaN(length(y), length(x), length(z), 3);
         [grid(:, :, :, 1), grid(:, :, :, 2), ...

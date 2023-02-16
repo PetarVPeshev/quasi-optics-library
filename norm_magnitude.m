@@ -9,7 +9,7 @@ function norm_magn_matrix = norm_magnitude(magn_matrix, varargin)
         scale_type = 'dB';
     elseif length(varargin) == 1
         scale_type = varargin{1};
-        if strcmp(scale_type, 'dB') || strcmp(scale_type, 'linear')
+        if ~( strcmp(scale_type, 'dB') || strcmp(scale_type, 'linear') )
             error('Invalid argument');
         end
     else
