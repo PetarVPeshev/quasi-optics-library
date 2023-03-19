@@ -18,8 +18,8 @@ function norm_magn_matrix = norm_magnitude(magn_matrix, varargin)
     
     max_magn = max( max( abs(magn_matrix) ) );
     if strcmp(scale_type, 'dB')
-        norm_magn_matrix = 20*log10( abs(magn_matrix) ) - ...
-            20*log10(max_magn);
+        norm_magn_matrix = 20 * log10( abs(magn_matrix) ) - ...
+            20 * log10(max_magn);
     else
         norm_magn_matrix = abs(magn_matrix) / max_magn;
     end

@@ -1,5 +1,5 @@
 function sph_vector = cart2sph_vector(cart_vector, varargin)
-%CART2SPH_VECTOR This function converts vector in cartesian
+%CART2SPH_VECTOR This function converts spherical vector in cartesian
 %coordinate system to a vector in spherical coordinate system
 %   The function takes M-by-N-by-3 matrix for the cartesian vector, and 
 %   M-by-N matrix for Theta and Phi. The cartesian matrix's third dimension

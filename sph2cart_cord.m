@@ -10,9 +10,9 @@ function cart_cord = sph2cart_cord(varargin)
 %   third dimension representing x, y, and z respectively.
     if length(varargin) == 6
         for idx = 1:2:6
-            if strcmp(varargin{idx}, 'X')
+            if strcmp(varargin{idx}, 'R')
                 r = varargin{idx + 1};
-            elseif strcmp(varargin{idx}, 'Y')
+            elseif strcmp(varargin{idx}, 'Theta')
                 theta = varargin{idx + 1};
             else
                 phi = varargin{idx + 1};
