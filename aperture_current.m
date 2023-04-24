@@ -2,6 +2,7 @@ function [ J, varargout ] = aperture_current(Efeed_comp, k, ...
     relat_permit, sph_grid, varargin)
 %APERTURE_CURRENT_FT Summary of this function goes here
 %   Detailed explanation goes here
+% TODO: implement lens aperture here
     wave_impedance = 376.730313668 / sqrt(relat_permit);
     enable_ft = false;
     for idx = 1 : 1 : length(varargin)
