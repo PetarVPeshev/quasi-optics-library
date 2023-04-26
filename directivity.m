@@ -10,7 +10,7 @@ function [ dir, rad_intensity, rad_power ] = directivity(relat_permit, ...
     field_total = total_field(field);
     theta = sph_grid(:, :, 1);
     
-    rad_intensity = (field_total .^ 2) * (r ^ 2) / (2 * wave_impedance);
+    rad_intensity = (field_total .^ 2) .* (r .^ 2) / (2 * wave_impedance);
     [row, col] = find( isnan(rad_intensity) );
     if ~isempty(col)
         warning(['Found singularities (NaN) in radiation intensity; ' ...
