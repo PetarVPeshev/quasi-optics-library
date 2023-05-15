@@ -16,14 +16,26 @@ function SGF = dyadic_sgf(relat_permit, k, k_comp, field, current)
                         SGF(:, :, row, col) = const .* ...
                             ( k^2 - k_comp(:, :, row).^2 );
                     else
+                        % only for z > 0
                         SGF(:, :, row, col) = const .* ...
                             ( - k_comp(:, :, row) .* ...
                             k_comp(:, :, col) );
                     end
                 end
             end
-        else 
-            error('Not implemented');
+        elseif strcmp(current, 'M')
+            const = - 1 ./ ( 2 * k_comp(:, :, 3) );
+            SGF(:, :, 1, 1) = 0;
+            SGF(:, :, 2, 2) = 0;
+            SGF(:, :, 3, 3) = 0;
+            SGF(:, :, 1, 2) = 1j * const .* k_comp(:, :, 3);
+            SGF(:, :, 1, 3) = -1j * const .* k_comp(:, :, 2);
+            SGF(:, :, 2, 1) = -1j * const .* k_comp(:, :, 3);
+            SGF(:, :, 2, 3) = 1j * const .* k_comp(:, :, 1);
+            SGF(:, :, 3, 1) = 1j * const .* k_comp(:, :, 2);
+            SGF(:, :, 3, 2) = -1j * const .* k_comp(:, :, 1);
+        else
+            error('Error. Invalid argument.');
         end
     else
         error('Not implemented');

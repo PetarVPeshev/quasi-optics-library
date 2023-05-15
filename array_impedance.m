@@ -1,0 +1,16 @@
+function imped = array_impedance(dipole_l, dipole_w, dx, dy, ...
+    k, km_comp, sgf)
+%ARRAY_IMPEDANCE Summary of this function goes here
+%   Detailed explanation goes here
+    % dipoles are oriented along x-axis (SGFxx)
+    I = ( 2 * k .* (cos(km_comp(:, :, :, 1) * dipole_l / 2) ...
+        - cos(k * dipole_l / 2)) ) ...
+        ./ ( (k ^ 2 - km_comp(:, :, :, 1) .^ 2) ...
+        * sin(k * dipole_l / 2) );
+    J = sinc( km_comp(:, :, :, 2) * dipole_w / (2 * pi) );
+
+    prod = permute(sgf(:, :, :, 1, 1) .* (abs(I) .^ 2) ...
+        .* (abs(J) .^ 2), [3, 4, 1, 2]);
+    imped = permute(- sum(prod) / (dx * dy), [3, 4, 1, 2]);
+end
+
