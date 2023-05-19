@@ -4,7 +4,7 @@ function [rec_power, efficiency] = rx_power(vgo_field, va_field, ...
 %   Detailed explanation goes here
     wave_impedance = 376.730313668;
 
-    inc_power = pi * (radius ^ 2) * (abs(pw_amplitude) ^ 2) / (2 * wave_impedance);
+    inc_power = pi * (radius) ^ 2 / (2 * wave_impedance);
 
     theta_max = max(rx_sph_grid(1, end, 1));
     [~, valid_col] = find(tx_sph_grid(:, :, 1) <= theta_max);
