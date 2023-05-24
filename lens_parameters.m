@@ -6,7 +6,7 @@ function lens = lens_parameters(diameter, relat_permit, cyl_grid, varargin)
 
     if isempty(varargin)
         crit_angle = asin(lens.eccint);
-        lens.theta_max = pi / 2 - crit_angle;
+        lens.theta_max = pi / 2 - crit_angle - 0.01 * pi / 180;
     elseif length(varargin) == 1
         lens.theta_max = varargin{1};
     else
