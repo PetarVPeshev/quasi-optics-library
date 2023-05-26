@@ -39,7 +39,7 @@ function ibf = bf_current(relat_permit, dipole_l, dipole_w, dx, dy, k0, ...
     Zin = array_impedance(relat_permit, dipole_l, dipole_w, dx, dy, ...
         k0, k_comp);
 
-    ibf = voltage ./ Zin;
+    ibf = voltage ./ (50 + Zin);
 end
 
 %     k = k0 * sqrt(relat_permit);
